@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 {
     public Rigidbody penguin;
     public float speed = 2.0f;
+    public static float force = 1.5f;
     Vector3 vec3;
 
 
@@ -39,7 +40,7 @@ public class Movement : MonoBehaviour
             transform.position = vec3;
         }
 
-        penguin.AddForce(0.0f, 0.0f, 1.5f, ForceMode.Force);
+        penguin.AddForce(0.0f, 0.0f, force, ForceMode.Force);
 
 
     }
