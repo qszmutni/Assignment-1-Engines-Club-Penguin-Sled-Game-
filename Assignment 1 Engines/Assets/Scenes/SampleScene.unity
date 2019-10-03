@@ -563,6 +563,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PenguinTube
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 305b5df9f27d33f45b91f24110f398dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 305b5df9f27d33f45b91f24110f398dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -632,6 +637,8 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -717,6 +724,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   penguin: {fileID: 1159002101}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4f3dda5c44af84588a93c3787383f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  penguin: {fileID: 1159002101}
+  GetCamera: {fileID: 963194227}
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 920b729196d28ec4a8347a2bc3a2d52e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GetCamera: {fileID: 963194227}
 --- !u!1 &1159002101
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +887,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Log
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e6564e8eded4025468ad3bc64e5c5c70,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e6564e8eded4025468ad3bc64e5c5c70,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -921,6 +960,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trunk
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 11cfa2a5fa6d03945ac2e756d6f6953d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 11cfa2a5fa6d03945ac2e756d6f6953d,
         type: 3}
