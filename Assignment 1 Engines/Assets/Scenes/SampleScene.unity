@@ -134,9 +134,10 @@ GameObject:
   - component: {fileID: 7891955}
   - component: {fileID: 7891951}
   - component: {fileID: 7891956}
+  - component: {fileID: 7891957}
   m_Layer: 0
   m_Name: Log
-  m_TagString: Untagged
+  m_TagString: Log
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,6 +245,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   penguin: {fileID: 1159002101}
+--- !u!114 &7891957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7891950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea61d63bfd18d848bb8fa4d3e95dad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mousedOver: {fileID: 7891950}
 --- !u!1 &233975383
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,9 +381,10 @@ GameObject:
   - component: {fileID: 315535958}
   - component: {fileID: 315535957}
   - component: {fileID: 315535961}
+  - component: {fileID: 315535962}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Stump
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -460,6 +475,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   penguin: {fileID: 1159002101}
+--- !u!114 &315535962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315535956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea61d63bfd18d848bb8fa4d3e95dad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mousedOver: {fileID: 315535956}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,6 +667,7 @@ GameObject:
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
+  - component: {fileID: 963194233}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -751,6 +780,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GetCamera: {fileID: 963194227}
+--- !u!114 &963194233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8472a949bea65c468b18c2498d45ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1159002101
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,9 +806,10 @@ GameObject:
   - component: {fileID: 1159002106}
   - component: {fileID: 1159002107}
   - component: {fileID: 1159002102}
+  - component: {fileID: 1159002108}
   m_Layer: 0
   m_Name: Penguin
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -875,6 +917,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 98
   m_CollisionDetection: 0
+--- !u!114 &1159002108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159002101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea61d63bfd18d848bb8fa4d3e95dad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mousedOver: {fileID: 1159002101}
 --- !u!1001 &1541791859
 PrefabInstance:
   m_ObjectHideFlags: 0

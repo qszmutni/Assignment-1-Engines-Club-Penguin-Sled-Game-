@@ -7,6 +7,8 @@ public class cameraMovement : MonoBehaviour
     public Camera GetCamera;
 
     float rotY, rotX;
+
+    public static bool editing = false;
    
    
     // Start is called before the first frame update
@@ -21,7 +23,7 @@ public class cameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gametolevel.levelEditor == true)
+        if (gametolevel.levelEditor == true && editing == false)
         {
             if (Input.GetKey(KeyCode.W))
             {
