@@ -16,13 +16,13 @@ public class objectSpawn : MonoBehaviour
     {
 
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && gametolevel.levelEditor == true)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && gametolevel.publicinstance.levelEdit() == true)
         {
             _obj.GetObject("Log");
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && gametolevel.levelEditor == true)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && gametolevel.publicinstance.levelEdit() == true)
         {
             _obj.GetObject("Stump");
 
@@ -41,7 +41,7 @@ public class objectSpawn : MonoBehaviour
     }
 
     public class log : objectSpawner
-    {
+    { 
 
       public log()
         {

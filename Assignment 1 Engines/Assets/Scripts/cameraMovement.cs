@@ -23,7 +23,7 @@ public class cameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gametolevel.levelEditor == true && editing == false)
+        if (gametolevel.publicinstance.levelEdit() == true && editing == false)
         {
             if (Input.GetKey(KeyCode.W))
             {

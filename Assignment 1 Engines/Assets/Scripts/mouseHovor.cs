@@ -54,7 +54,7 @@ public class mouseHovor : MonoBehaviour
 
     void Update()
     {
-        if (mouseOver == true && gametolevel.levelEditor == true)
+        if (mouseOver == true && gametolevel.publicinstance.levelEdit() == true)
         {
 
             mousedOver.GetComponent<Renderer>().material.SetVector("_Color2", newColor);
@@ -70,7 +70,7 @@ public class mouseHovor : MonoBehaviour
                 switchBool = false;
                 checkPress = false;
 
-                //InputDLL(1.0f, 1.0f, 1.0f);
+                InputDLL(mousedOver.transform.position.x, mousedOver.transform.position.y, mousedOver.transform.position.z);
 
             }
 
@@ -80,7 +80,7 @@ public class mouseHovor : MonoBehaviour
             switchBool = false;
             checkPress = false;
 
-            //InputDLL(mousedOver.transform.position.x, mousedOver.transform.position.y, mousedOver.transform.position.z);
+            InputDLL(mousedOver.transform.position.x, mousedOver.transform.position.y, mousedOver.transform.position.z);
 
         }
 
