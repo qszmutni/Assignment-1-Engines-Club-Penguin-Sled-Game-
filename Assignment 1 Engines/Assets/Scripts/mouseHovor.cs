@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+using System.Runtime.InteropServices;
 
 
 public class mouseHovor : MonoBehaviour
@@ -14,7 +14,35 @@ public class mouseHovor : MonoBehaviour
     bool checkPress = false;
     public GameObject mousedOver;
 
+
+    Stack<GameObject> undoStack = new Stack<GameObject>();
+    Stack<GameObject> redoStack = new Stack<GameObject>();
+
     public static GameObject currentObject;
+
+
+    const string DLL_NAME = "Assignment 1 DLL";
+
+    [DllImport(DLL_NAME)]
+    private static extern void InputDLL(float x, float y, float z);
+
+    [DllImport(DLL_NAME)]
+    private static extern void Undo();
+
+    [DllImport(DLL_NAME)]
+    private static extern void Redo();
+
+    [DllImport(DLL_NAME)]
+    private static extern void History();
+
+    [DllImport(DLL_NAME)]
+    private static extern float X();
+
+    [DllImport(DLL_NAME)]
+    private static extern float Y();
+
+    [DllImport(DLL_NAME)]
+    private static extern float Z();
 
     void Awake()
     {
@@ -35,11 +63,14 @@ public class mouseHovor : MonoBehaviour
 
                 switchBool = true;
                 checkPress = true;
+                undoStack.Push(mousedOver);
             }
             else if (Input.GetKeyDown(KeyCode.E) && checkPress == true)
             {
                 switchBool = false;
                 checkPress = false;
+
+                //InputDLL(1.0f, 1.0f, 1.0f);
 
             }
 
@@ -49,6 +80,25 @@ public class mouseHovor : MonoBehaviour
             switchBool = false;
             checkPress = false;
 
+            //InputDLL(mousedOver.transform.position.x, mousedOver.transform.position.y, mousedOver.transform.position.z);
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Undo();
+            redoStack.Push(undoStack.Peek());
+            undoStack.Pop();
+            undoStack.Peek().transform.position = new Vector3(X(), Y(), Z());
+           
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Redo();
+            undoStack.Push(redoStack.Peek());
+            redoStack.Pop();
+            redoStack.Peek().transform.position = new Vector3(X(), Y(), Z());
         }
 
 
