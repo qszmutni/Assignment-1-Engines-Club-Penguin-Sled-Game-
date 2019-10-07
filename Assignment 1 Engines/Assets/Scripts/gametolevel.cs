@@ -8,6 +8,7 @@ public class gametolevel : MonoBehaviour
     Vector3 defaultPos;
     Vector3 defaultRot;
     Vector3 playerpos;
+    Vector3 Dir;
     PhysicMaterial saved;
     //Camera GetCamera;
     bool levelEditor = false;
@@ -36,6 +37,7 @@ public class gametolevel : MonoBehaviour
         playerpos = GameObject.FindWithTag("Player").transform.position;
         defaultPos = Camera.main.transform.position;
         defaultRot = new Vector3(Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.rotation.eulerAngles.y, Camera.main.transform.rotation.eulerAngles.z);
+        Dir = Camera.main.transform.forward;
         saved = GameObject.FindWithTag("Player").GetComponent<BoxCollider>().material;
     }
 
@@ -62,6 +64,7 @@ public class gametolevel : MonoBehaviour
             GameObject.FindWithTag("Player").transform.position = playerpos;
             Camera.main.transform.position = defaultPos;
             Camera.main.transform.rotation.eulerAngles.Set(defaultRot.x, defaultRot.y, defaultRot.z);
+            Camera.main.transform.forward = Dir;
             Camera.main.GetComponent<cameraFollow>().enabled = true;
             levelEditor = false;
         }
