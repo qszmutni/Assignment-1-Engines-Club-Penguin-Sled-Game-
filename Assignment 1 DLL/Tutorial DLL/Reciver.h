@@ -13,7 +13,6 @@ public:
 	void callInput();
 	void callUndo();
 	void callRedo();
-	void callHistory();
 
 private:
 

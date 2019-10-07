@@ -1,21 +1,18 @@
 #include "history.h"
 
 
-void history::callCommand() {
-	setCommandName("history");
-}
 
 
-std::stack<std::vector<float>> history::getStack()
+std::stack<std::vector<float>> history::getStack(std::string n)
 {
-	if (getCommandName() == "undo") {
+	if (n == "undo") {
 		return cmdHistoryUndo;
 	}
-	if (getCommandName() == "redo") {
+	if (n == "redo") {
 		return cmdHistoryRedo;
 	}
 
-	if (getCommandName() == "input") { //Memory problem is here, getCommandName is blank even though I call it in main.cpp
+	if (n == "input") { //Memory problem is here, getCommandName is blank even though I call it in main.cpp
 										//And it shows up under Input Class->Command Class->CommandName but doesn't get set anywhere else
 										//Eg Command::commandName doesn't have input as what was set.
 		return cmdHistoryUndo;

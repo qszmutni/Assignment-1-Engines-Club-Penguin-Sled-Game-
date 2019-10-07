@@ -1,20 +1,20 @@
 #include "redo.h"
 
 void redo::callCommand() {
-	Command::setCommandName("redo");
+	setCommandName("redo");
 }
 
-std::vector<float> redo::callStackRedo()
+std::vector<float> redo::callStackRedo(std::string n)
 {
-	return getStack().top();
+	return getStack(n).top();
 }
 
-void redo::popStackRedo()
+void redo::popStackRedo(std::string n)
 {
-	getStack().pop();
+	getStack(n).pop();
 }
 
-void redo::pushStackRedo(std::vector<float> i)
+void redo::pushStackRedo(std::vector<float> i, std::string  n)
 {
-	getStack().push(i);
+	getStack(n).push(i);
 }

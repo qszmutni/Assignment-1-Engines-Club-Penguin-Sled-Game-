@@ -2,14 +2,14 @@
 #include "command.h"
 #include <stack>
 #include <vector>
+#include <string>
 
-
-class history : public Command
+class history
 {
 public:
-	void callCommand();
+	
 
-	std::stack <std::vector<float>> getStack();
+	std::stack <std::vector<float>> getStack(std::string);
 
 private:
 	std::stack <std::vector<float>> cmdHistoryUndo;

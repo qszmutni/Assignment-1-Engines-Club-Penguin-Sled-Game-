@@ -19,10 +19,6 @@ void Redo() {
 	reciverCall.excuteCommand();
 }
 
-void History() {
-	reciverCall.callHistory();
-	reciverCall.excuteCommand();
-}
 
 float X() {
 	return reciverCall.getInputVector(0);

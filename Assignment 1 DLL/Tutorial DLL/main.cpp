@@ -7,5 +7,12 @@ void main() {
 	reciverCall.callInput();
 	reciverCall.excuteCommand();
 
+	reciverCall.setInputVector(2.0f, 2.0f, 2.0f);
+	reciverCall.callInput();
+	reciverCall.excuteCommand();
+
+	reciverCall.callUndo();
+	reciverCall.excuteCommand();
+
 
 }

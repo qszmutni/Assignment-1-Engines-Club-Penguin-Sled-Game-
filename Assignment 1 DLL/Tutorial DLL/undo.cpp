@@ -3,20 +3,20 @@
 
 void undo::callCommand() {
 
-	Command::setCommandName("undo");
+	setCommandName("undo");
 }
 
-std::vector<float> undo::callStackUndo()
+std::vector<float> undo::callStackUndo(std::string n)
 {
-	return getStack().top();
+	return history::getStack(n).top();
 }
 
-void undo::popStackUndo()
+void undo::popStackUndo(std::string n)
 {
-	getStack().pop();
+	getStack(n).pop();
 }
 
-void undo::pushStackUndo(std::vector<float> i)
+void undo::pushStackUndo(std::vector<float> i, std::string n)
 {
-	getStack().push(i);
+	getStack(n).push(i);
 }
