@@ -9,16 +9,18 @@ public class mouseHovor : MonoBehaviour
 
     Vector4 defaultColor;
     Vector4 newColor;
+    Vector3 temp;
     bool mouseOver = false;
     bool switchBool = false;
     bool checkPress = false;
+    string currentObject;
     public GameObject mousedOver;
 
 
     Stack<GameObject> undoStack = new Stack<GameObject>();
     Stack<GameObject> redoStack = new Stack<GameObject>();
 
-    public static GameObject currentObject;
+   
 
 
     const string DLL_NAME = "Assignment 1 DLL";
@@ -49,77 +51,97 @@ public class mouseHovor : MonoBehaviour
         defaultColor = GetComponent<Renderer>().material.GetVector("_Color2");
         newColor = new Vector4(0.0f, 0.0f, 0.0f, 1.0f);
 
-        currentObject = mousedOver;
     }
 
     void Update()
     {
+
+ 
         if (mouseOver == true && gametolevel.publicinstance.levelEdit() == true)
         {
-
+           // Debug.Log("test");
+            
             mousedOver.GetComponent<Renderer>().material.SetVector("_Color2", newColor);
             if (Input.GetKeyDown(KeyCode.E) && checkPress == false)
             {
-
+                currentObject = mousedOver.name;
+               Debug.Log(currentObject);
+                undoStack.Push(mousedOver);
+                Debug.Log(mousedOver.name);
+                InputDLL(mousedOver.transform.position.x, mousedOver.transform.position.y, mousedOver.transform.position.z);
+                 Debug.Log(mousedOver.transform.position);
                 switchBool = true;
                 checkPress = true;
-                undoStack.Push(mousedOver);
+
             }
             else if (Input.GetKeyDown(KeyCode.E) && checkPress == true)
             {
                 switchBool = false;
-                checkPress = false;
-
+                undoStack.Push(mousedOver);
                 InputDLL(mousedOver.transform.position.x, mousedOver.transform.position.y, mousedOver.transform.position.z);
-
+                Debug.Log(mousedOver.transform.position);
+                checkPress = false;
             }
 
         }
         else if (Input.GetKeyDown(KeyCode.E) && checkPress == true)
         {
             switchBool = false;
-            checkPress = false;
-
+            undoStack.Push(mousedOver);
             InputDLL(mousedOver.transform.position.x, mousedOver.transform.position.y, mousedOver.transform.position.z);
-
+            Debug.Log(mousedOver.transform.position);
+            checkPress = false;
         }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Undo();
-            redoStack.Push(undoStack.Peek());
-            undoStack.Pop();
-            undoStack.Peek().transform.position = new Vector3(X(), Y(), Z());
-           
-        }
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            Redo();
-            undoStack.Push(redoStack.Peek());
-            redoStack.Pop();
-            redoStack.Peek().transform.position = new Vector3(X(), Y(), Z());
-        }
-
-
 
         if (switchBool == true)
         {
-           mousedOver.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
+
+            //Debug.Log("TRUE!");
+            mousedOver.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
         }
+
+
+        if (Input.GetKeyDown(KeyCode.C) && gametolevel.publicinstance.levelEdit() == true)
+        {
+            if (currentObject == mousedOver.name)
+            {
+                Debug.Log("undo");
+                redoStack.Push(undoStack.Peek());
+                undoStack.Pop();
+                Undo();
+                temp = new Vector3(X(), Y(), Z());
+                Debug.Log(temp);
+                GameObject.Find(undoStack.Peek().name).transform.position = temp;
+
+
+
+            }
+           
+        }
+
+        if (Input.GetKeyDown(KeyCode.V) && gametolevel.publicinstance.levelEdit() == true)
+        {
+            if (currentObject == mousedOver.name)
+            {
+                Debug.Log("redo");
+                undoStack.Push(redoStack.Peek());
+                redoStack.Pop();
+                Redo();
+                temp = new Vector3(X(), Y(), Z());
+                Debug.Log(temp);
+                GameObject.Find(redoStack.Peek().name).transform.position = temp;
+            }
+        }
+
+
+       
     }
 
 
     void OnMouseOver()
     {
         mouseOver = true;
-        //if (mouseOver == true && switchBool == false)
-        //{
-            //GetComponent<Renderer>().material.SetVector("_Color2", newColor);
-            //switchBool = false;
-        //}else{
-        //    switchBool = true;
-        //}
+
 
     }
 
@@ -128,13 +150,9 @@ public class mouseHovor : MonoBehaviour
     void OnMouseExit()
     {
         mouseOver = false;
-        //if (mouseOver == false && switchBool == true)
-        //{
+     
             mousedOver.GetComponent<Renderer>().material.SetVector("_Color2", defaultColor);
-        //    switchBool = true;
-        //}else{
-        //    switchBool = false;
-        //}
+  
        
     }
 

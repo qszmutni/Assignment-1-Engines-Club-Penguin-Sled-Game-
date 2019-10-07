@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Log
   - Stump
+  - Ice
+  - Slope
   layers:
   - Default
   - TransparentFX
